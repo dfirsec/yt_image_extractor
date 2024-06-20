@@ -1,8 +1,8 @@
 """Downloads YouTube video and extracts video frames as a collection of image files."""
 
 import argparse
-from rich.console import Console
 
+from rich.console import Console
 from utils.helpers import check_value
 from utils.helpers import is_ffmpeg_installed
 from utils.video_processor import VideoProcessor
