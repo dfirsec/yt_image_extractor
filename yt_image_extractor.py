@@ -32,11 +32,11 @@ def main() -> None:
     )
     parser.add_argument(
         "--start-time",
-        help="start time for video timeframe (format: HH:MM:SS)",
+        help="start time for video timeframe (format: MM:SS)",
     )
     parser.add_argument(
         "--end-time",
-        help="end time for video timeframe (format: HH:MM:SS)",
+        help="end time for video timeframe (format: MM:SS)",
     )
     args = parser.parse_args()
 
