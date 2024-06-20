@@ -1,6 +1,6 @@
 # YouTube Image Extractor
 
-![Generic badge](https://img.shields.io/badge/python-3.9-blue.svg) [![Twitter](https://img.shields.io/badge/Twitter-@pulsecode-blue.svg)](https://twitter.com/pulsecode)
+![Generic badge](https://img.shields.io/badge/python-3.10-blue.svg) [![Twitter](https://img.shields.io/badge/Twitter-@pulsecode-blue.svg)](https://twitter.com/pulsecode)
 
 Downloads YouTube video and extracts video frames as a collection of image files.
 
@@ -8,32 +8,30 @@ Files created by the script: Unique ID directory to store downloaded video and i
 
 ## Requirements
 
-- ffmpeg
+- [ffmpeg](https://ffmpeg.org/download.html)
+  - Windows: `winget install Gyan.FFmpeg` or `scoop install ffmpeg`
+  - Ubuntu: `sudo apt update && sudo apt install ffmpeg`
+  - Mac: `brew install ffmpeg`
+- [yt-dlp](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation)
+  - `python -m pip install yt-dlp -U`
 
 ## Installation
 
 1. Clone the repository:
 
-```bash
-git clone https://github.com/dfirsec/yt_image_extractor.git
-```
+        git clone <https://github.com/dfirsec/yt_image_extractor.git>
 
 2. Change to the project directory:
 
-```bash
-cd yt_image_extractor
-```
+        cd yt_image_extractor
 
 3. Install required packages using poetry:
 
-```bash
-pip install poetry
-poetry install
-```
+        pip install poetry
+        poetry install
 
 ## Usage
 
-```console
     ██╗   ██╗  ██╗   ███████╗
     ╚██╗ ██╔╝  ██║   ██╔════╝
      ╚████╔╝   ██║   █████╗
@@ -43,8 +41,7 @@ poetry install
 
      YouTube Image Extractor
 
-usage: yt_image_extractor.py [-h] [-s] [-f [N]] [--start-time START_TIME] [--end-time END_TIME] url
-```
+     usage: yt_image_extractor.py [-h] [-s] [-f [N]] [--start-time START_TIME] [--end-time END_TIME] url
 
 ## Arguments
 
@@ -59,33 +56,21 @@ usage: yt_image_extractor.py [-h] [-s] [-f [N]] [--start-time START_TIME] [--end
 
 Download the entire video with default options:
 
-```bash
-python yt_image_extractor.py <video_url>
-```
+    python yt_image_extractor.py <video_url>
 
 Download in low quality:
 
-```bash
-python yt_image_extractor.py -s <video_url>
-```
+    python yt_image_extractor.py -s <video_url>
 
 Capture one image every 60 frames:
 
-```bash
-python yt_image_extractor.py -f 60 <video_url>
-```
+    python yt_image_extractor.py -f 60 <video_url>
 
 Extract images from a specific timeframe:
 
-```bash
-python yt_image_extractor.py --start-time 01:10 --end-time 01:35 <video_url>
-```
+    python yt_image_extractor.py --start-time 01:10 --end-time 01:35 <video_url>
 
 > Note: Replace <video_url> with the actual YouTube video URL you want to process.
-
-## Dependencies
-
-- **yt-dlp**: For video download
 
 ## License
 
