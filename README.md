@@ -4,7 +4,9 @@
 
 Downloads YouTube video and extracts video frames as a collection of image files.
 
-Files created by the script: Unique ID directory to store downloaded video and image files.
+Files created by the script:
+
+- Unique directory ID to store downloaded video and image files.
 
 ## Requirements
 
