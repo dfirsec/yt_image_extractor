@@ -52,8 +52,8 @@ usage: yt_image_extractor.py [-h] [-s] [-f [N]] [--start-time START_TIME] [--end
 - `-h, --help`: Display the help message.
 - `-s, --small`: Download the video in the lowest available quality.
 - `-f [N]`: Specify the number of frames to skip before capturing an image (default is 30, i.e., capture 1 image every 30 frames).
-- `--start-time`: Define the video start time for image extraction (format: HH:MM:SS).
-- `--end-time`: Define the video end time for image extraction (format: HH:MM:SS).
+- `--start-time`: Define the video start time for image extraction (format: MM:SS).
+- `--end-time`: Define the video end time for image extraction (format: MM:SS).
 
 ### Example Usage
 
@@ -78,7 +78,7 @@ python yt_image_extractor.py -f 60 <video_url>
 Extract images from a specific timeframe:
 
 ```bash
-python yt_image_extractor.py --start-time 00:00:10 --end-time 00:01:00 <video_url>
+python yt_image_extractor.py --start-time 01:10 --end-time 01:35 <video_url>
 ```
 
 > Note: Replace <video_url> with the actual YouTube video URL you want to process.
