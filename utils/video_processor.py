@@ -61,15 +61,18 @@ class VideoProcessor:
         self.create_directories(video_title)
 
         ydl_opts = {
-            "format": "worst" if small else "best",
+            "format": "worst" if small else "22/18/best[height<=720]",
             "outtmpl": f"{self.video_dir}/%(title)s.%(ext)s",
             "restrict-filenames": True,
+            "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
+            "merge_output_format": "mp4",
+            "sort": "res:2160,fps",
         }
 
         try:
             with YoutubeDL(ydl_opts) as ydl:
-                ydl.download([url])
-                self.video_filename = ydl.prepare_filename(ydl.extract_info(url, download=False))
+                info_dict = ydl.extract_info(url, download=True)
+                self.video_filename = ydl.prepare_filename(info_dict)
 
         except utils.DownloadError:
             print("Error: Invalid URL")
@@ -102,10 +105,10 @@ class VideoProcessor:
             "-noprogress",
             "--no-playlist",
             "-f",
-            "18",
+            "22/18/best[height<=720]",
             "--downloader",
             "ffmpeg",
-            "--external-downloader-args",
+            "--downloader-args",
             f"ffmpeg_i:{external_downloader_args}",
             "--restrict-filenames",
             "--output",
@@ -129,8 +132,8 @@ class VideoProcessor:
             print("Error: Image directory not properly initialized.")
             return
 
-        vidfile = "".join([str(vidobj) for vidobj in self.video_dir.iterdir() if vidobj.is_file()])
-        if not vidfile:
+        video_filepath = "".join([str(vidobj) for vidobj in self.video_dir.iterdir() if vidobj.is_file()])
+        if not video_filepath:
             print("Error: No video files found in the video directory.")
             return
 
@@ -139,7 +142,7 @@ class VideoProcessor:
             "ffmpeg",
             "-y",
             "-i",
-            vidfile,
+            video_filepath,
             "-vf",
             f"fps={fps}",
             "-loglevel",
