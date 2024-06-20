@@ -27,10 +27,14 @@ Files created by the script:
 
         cd yt_image_extractor
 
-3. Install required packages using poetry:
+3. Install required packages using Poetry:
 
         pip install poetry
         poetry install
+
+4. Activate the Poetry shell:
+
+        poetry shell
 
 ## Usage
 
