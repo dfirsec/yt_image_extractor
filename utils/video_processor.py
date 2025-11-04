@@ -39,6 +39,7 @@ class VideoProcessor:
         ydl_opts = {
             "quiet": True,
             "no-warnings": True,
+            "logger": None,
             "no-progress": True,
         }
         try:
@@ -67,6 +68,10 @@ class VideoProcessor:
             "postprocessors": [{"key": "FFmpegVideoConvertor", "preferedformat": "mp4"}],
             "merge_output_format": "mp4",
             "sort": "res:2160,fps",
+            "quiet": True,
+            "no-warnings": True,
+            "logger": None,
+            "no-progress": True,
         }
 
         try:
@@ -102,7 +107,7 @@ class VideoProcessor:
             "-q",
             "-4",
             "--no-warnings",
-            "-noprogress",
+            "--no-progress",
             "--no-playlist",
             "-f",
             "22/18/best[height<=720]",
@@ -118,7 +123,11 @@ class VideoProcessor:
         ]
 
         with console.status("[sea_green2]Downloading video..."):
-            result = subprocess.call(yt_dlp_args)
+            result = subprocess.call(
+                yt_dlp_args,
+                stdout=subprocess.DEVNULL,  # Redirect standard output
+                stderr=subprocess.DEVNULL,  # Redirect standard error
+            )
         if result != 0:
             print("Error: Could not download the video with given timeframe.")
             sys.exit(1)
