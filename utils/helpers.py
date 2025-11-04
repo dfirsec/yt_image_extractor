@@ -19,7 +19,7 @@ def is_ffmpeg_installed() -> bool:
     try:
         # Get ffmpeg version info
         # stdout and stderr prevent the output from being printed
-        subprocess.run(["ffmpeg1", "-version"], capture_output=True, check=True)
+        subprocess.run(["ffmpeg", "-version"], capture_output=True, check=True)
     except subprocess.CalledProcessError:
         return False
     except FileNotFoundError:
