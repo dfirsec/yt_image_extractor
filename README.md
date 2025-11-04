@@ -34,7 +34,6 @@ Files created by the script:
 
         uv run yt_image_extractor.py <video_url> [options]
 
-
 ## Usage
 
     ██╗   ██╗  ██╗   ███████╗
