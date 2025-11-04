@@ -3,4 +3,4 @@
 !/utils/
 
 # exclude files
-poetry.lock
+uv.lock
