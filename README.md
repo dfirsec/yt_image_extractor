@@ -63,19 +63,19 @@ Files created by the script:
 
 Download the entire video with default options:
 
-    python yt_image_extractor.py <video_url>
+    uv run yt_image_extractor.py <video_url>
 
 Download in low quality:
 
-    python yt_image_extractor.py -s <video_url>
+    uv run yt_image_extractor.py -s <video_url>
 
 Capture one image every 60 frames:
 
-    python yt_image_extractor.py -f 60 <video_url>
+    uv run yt_image_extractor.py -f 60 <video_url>
 
 Extract images from a specific timeframe:
 
-    python yt_image_extractor.py --start-time 01:10 --end-time 01:35 <video_url>
+    uv run yt_image_extractor.py --start-time 01:10 --end-time 01:35 <video_url>
 
 > Note: Replace <video_url> with the actual YouTube video URL you want to process.
 
