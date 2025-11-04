@@ -1,4 +1,4 @@
-# YouTube Image Extractor
+# YouTube Image Extractor (YIE)
 
 ![Generic badge](https://img.shields.io/badge/python-3.10-blue.svg) [![Twitter](https://img.shields.io/badge/Twitter-@pulsecode-blue.svg)](https://twitter.com/pulsecode)
 
