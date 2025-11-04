@@ -6,10 +6,10 @@ authors = [{ name = "Mitch Haddadi", email = "12067255+dfirsec@users.noreply.git
 requires-python = ">=3.10"
 license = "MIT"
 
-[tool.poetry.dependencies]
-python = "^3.10"
-rich = "^13.5.2"
-yt-dlp = "^2024.4.9"
+dependencies = [
+    "rich>=13.5.2",
+    "yt-dlp>=2024.4.9",
+]
 
 [dependency-groups]
 dev = []

@@ -65,8 +65,8 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "rich", specifier = ">=14.2.0" },
-    { name = "yt-dlp", specifier = ">=2025.10.22" },
+    { name = "rich", specifier = ">=13.5.2" },
+    { name = "yt-dlp", specifier = ">=2024.4.9" },
 ]
 
 [package.metadata.requires-dev]

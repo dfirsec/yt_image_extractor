@@ -27,14 +27,15 @@ Files created by the script:
 
         cd yt_image_extractor
 
-3. Install required packages using Poetry:
+3. Install dependencies and create environment:
 
-        pip install poetry
-        poetry install
+        uv venv
+        uv sync
 
-4. Activate the Poetry shell:
+4. Run the script:
 
-        poetry shell
+        uv run yt_image_extractor.py <video_url> [options]
+
 
 ## Usage
 
