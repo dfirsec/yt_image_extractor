@@ -14,8 +14,6 @@ Files created by the script:
   - Windows: `winget install Gyan.FFmpeg` or `scoop install ffmpeg`
   - Ubuntu: `sudo apt update && sudo apt install ffmpeg`
   - Mac: `brew install ffmpeg`
-- [yt-dlp](https://github.com/yt-dlp/yt-dlp?tab=readme-ov-file#installation)
-  - `python -m pip install yt-dlp -U`
 
 ## Installation
 
