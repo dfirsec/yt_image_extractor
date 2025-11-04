@@ -5,10 +5,11 @@ description = "Downloads YouTube video and extracts video frames as a collection
 authors = [{ name = "Mitch Haddadi", email = "12067255+dfirsec@users.noreply.github.com" }]
 requires-python = ">=3.10"
 license = "MIT"
-dependencies = [
-    "rich>=14.2.0",
-    "yt-dlp>=2025.10.22",
-]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+rich = "^13.5.2"
+yt-dlp = "^2024.4.9"
 
 [dependency-groups]
 dev = []
