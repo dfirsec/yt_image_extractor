@@ -1,9 +1,11 @@
 """Downloads YouTube video and extracts video frames as a collection of image files."""
 
 import argparse
+import sys
 
 from rich.console import Console
 from utils.helpers import check_value
+from utils.helpers import get_ffmpeg_install_instructions
 from utils.helpers import is_ffmpeg_installed
 from utils.video_processor import VideoProcessor
 
@@ -61,9 +63,11 @@ if __name__ == "__main__":
 """
     console.print(banner, style="pale_turquoise1")
     if not is_ffmpeg_installed():
-        print(
-            "Error: ffmpeg is not installed or not available in the system PATH. "
-            "Please install it before proceeding.",
+        console.print(
+            "[red]Error: ffmpeg is not installed or not available in the system PATH.[/red]",
         )
+        panel = get_ffmpeg_install_instructions()
+        console.print(panel)
+        sys.exit(1)
 
     main()

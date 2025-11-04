@@ -1,7 +1,11 @@
 """Utility functions for ytdl_img_extractor."""
 
+import platform
 import string
 import subprocess
+
+from rich.panel import Panel
+from rich.text import Text
 
 
 class InvalidFPSValueError(ValueError):
@@ -15,12 +19,79 @@ def is_ffmpeg_installed() -> bool:
     try:
         # Get ffmpeg version info
         # stdout and stderr prevent the output from being printed
-        subprocess.run(["ffmpeg", "-version"], capture_output=True, check=True)  # noqa: S603, S607
+        subprocess.run(["ffmpeg1", "-version"], capture_output=True, check=True)
     except subprocess.CalledProcessError:
         return False
     except FileNotFoundError:
         return False
     return True
+
+
+def get_ffmpeg_install_instructions() -> Panel:
+    """Installation instructions for ffmpeg."""
+    system = platform.system().lower()
+
+    instructions = {
+        "windows": """
+To install ffmpeg on Windows:
+
+1. Using WinGet (recommended):
+   - Run: winget install ffmpeg -s winget
+
+2. Manual installation:
+   - Download from https://ffmpeg.org/download.html
+   - Extract the ZIP file
+   - Add the bin folder to your system PATH
+   - Restart your terminal/IDE after installation
+
+After installing, run the program again to verify the installation.""",
+        "darwin": """
+To install ffmpeg on macOS:
+
+1. Using Homebrew (recommended):
+   - Open Terminal
+   - Run: brew install ffmpeg
+
+2. Using MacPorts:
+   - Run: sudo port install ffmpeg
+
+After installing, run the program again to verify the installation.""",
+        "linux": """
+To install ffmpeg on Linux:
+
+Ubuntu/Debian:
+- Run: sudo apt update && sudo apt install ffmpeg
+
+Fedora:
+- Run: sudo dnf install ffmpeg
+
+Arch Linux:
+- Run: sudo pacman -S ffmpeg
+
+After installing, run the program again to verify the installation.""",
+    }
+
+    default_instructions = f"""
+To install ffmpeg on {platform.system()}:
+
+1. Visit https://ffmpeg.org/download.html
+2. Follow the installation instructions for your system
+3. Ensure ffmpeg is added to your system PATH
+4. Restart your terminal/IDE after installation
+
+After installing, run the program again to verify the installation."""
+
+    instruction_text = Text(
+        instructions.get(system, default_instructions),
+        style="yellow",
+    )
+
+    return Panel(
+        instruction_text,
+        title="FFmpeg Installation Instructions",
+        border_style="blue",
+        padding=(1, 2),
+    )
 
 
 def check_value(arg: str) -> int:

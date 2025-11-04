@@ -118,7 +118,7 @@ class VideoProcessor:
         ]
 
         with console.status("[sea_green2]Downloading video..."):
-            result = subprocess.call(yt_dlp_args)  # noqa: S603
+            result = subprocess.call(yt_dlp_args)
         if result != 0:
             print("Error: Could not download the video with given timeframe.")
             sys.exit(1)
@@ -151,7 +151,7 @@ class VideoProcessor:
         ]
 
         with console.status("[sea_green2]Extracting frames..."):
-            process = subprocess.run(command, capture_output=True, text=True)  # noqa: S603, PLW1510
+            process = subprocess.run(command, capture_output=True, text=True)  # noqa: PLW1510
 
             if "Error" in process.stderr:
                 print("Error:", process.stderr)
