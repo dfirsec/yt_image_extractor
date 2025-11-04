@@ -1,5 +1,5 @@
 [project]
-name = "yt_image_extractor"
+name = "yie"
 version = "0.1.2"
 description = "Downloads YouTube video and extracts video frames as a collection of image files"
 authors = [{ name = "Mitch Haddadi", email = "12067255+dfirsec@users.noreply.github.com" }]

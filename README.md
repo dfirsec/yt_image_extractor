@@ -32,7 +32,7 @@ Files created by the script:
 
 4. Run the script:
 
-        uv run yt_image_extractor.py <video_url> [options]
+        uv run yie.py <video_url> [options]
 
 ## Usage
 
@@ -45,7 +45,7 @@ Files created by the script:
 
      YouTube Image Extractor
 
-     usage: yt_image_extractor.py [-h] [-s] [-f [N]] [--start-time START_TIME] [--end-time END_TIME] url
+     usage: yie.py [-h] [-s] [-f [N]] [--start-time START_TIME] [--end-time END_TIME] url
 
 ## Arguments
 
@@ -60,19 +60,19 @@ Files created by the script:
 
 Download the entire video with default options:
 
-    uv run yt_image_extractor.py <video_url>
+    uv run yie.py <video_url>
 
 Download in low quality:
 
-    uv run yt_image_extractor.py -s <video_url>
+    uv run yie.py -s <video_url>
 
 Capture one image every 60 frames:
 
-    uv run yt_image_extractor.py -f 60 <video_url>
+    uv run yie.py -f 60 <video_url>
 
 Extract images from a specific timeframe:
 
-    uv run yt_image_extractor.py --start-time 01:10 --end-time 01:35 <video_url>
+    uv run yie.py --start-time 01:10 --end-time 01:35 <video_url>
 
 > Note: Replace <video_url> with the actual YouTube video URL you want to process.
 
